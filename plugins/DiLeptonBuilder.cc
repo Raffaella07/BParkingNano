@@ -110,6 +110,10 @@ void DiLeptonBuilder<Lepton>::produce(edm::StreamID, edm::Event &evt, edm::Event
       lepton_pair.addUserFloat("l1_Esc/p_track", l1_ptr->eSuperClusterOverP());
       lepton_pair.addUserFloat("l1_SmearedE", l1_ptr->userFloat("ecalEnergyPostCorr"));
       lepton_pair.addUserFloat("l2_SmearedE", l2_ptr->userFloat("ecalEnergyPostCorr"));
+      lepton_pair.addUserFloat("l1_Smearing", l1_ptr->userFloat("energySmearNrSigma"));
+      lepton_pair.addUserFloat("l2_Smearing", l2_ptr->userFloat("energySmearNrSigma"));
+      lepton_pair.addUserFloat("l1_Scale", l1_ptr->userFloat("energyScaleValue"));
+      lepton_pair.addUserFloat("l2_Scale", l2_ptr->userFloat("energyScaleValue"));
       // Use UserCands as they should not use memory but keep the Ptr itself
       lepton_pair.addUserCand("l1", l1_ptr );
       lepton_pair.addUserCand("l2", l2_ptr );

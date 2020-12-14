@@ -130,7 +130,8 @@ void ElectronMerger::produce(edm::StreamID, edm::Event &evt, edm::EventSetup con
 			<< " => PF: ele.superCluster()->rawEnergy() = " << ele.superCluster()->rawEnergy()
 			<< ", ele.correctedEcalEnergy() = " << ele.correctedEcalEnergy()
 			<< ", MC corrected energy = " << ele.userFloat("ecalEnergyPostCorr")
-			<< ", ele.p = "  << std::endl;
+			<< ", MC smearing = "  << ele.userFloat("energySmearNrSigma") 
+			<< ", data scale = "  << ele.userFloat("energyScaleValue") << std::endl;
 
    //cuts
    if (ele.pt()<ptMin_ || ele.pt() < pf_ptMin_) continue;
